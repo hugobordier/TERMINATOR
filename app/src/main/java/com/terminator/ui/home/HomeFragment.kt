@@ -1,5 +1,6 @@
 package com.terminator.ui.home
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +12,15 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.terminator.DetailArticle
+import com.terminator.PRODUCT_DATA
+import com.terminator.ProductAdapter
+import com.terminator.R
 import com.terminator.databinding.FragmentHomeBinding
+import com.terminator.repository.ProductRepository
+import kotlinx.coroutines.runBlocking
 
 class HomeFragment : Fragment() {
 
@@ -30,6 +39,20 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
 
+        val recyclerView =binding.listArticles
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+        runBlocking {
+            val repository = ProductRepository()
+            val products = repository.getAllProducts()
+
+            recyclerView.adapter = ProductAdapter(products) { product ->
+                val intent = Intent(requireContext(), DetailArticle::class.java).apply {
+                    putExtra(PRODUCT_DATA, product)
+                }
+                startActivity(intent)
+            }
+        }
         return root
     }
 

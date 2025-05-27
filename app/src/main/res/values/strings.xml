@@ -9,4 +9,7 @@
     <string name="description" />
     <string name="category" />
     <string name="image" />
+    <string name="rating" />
+    <string name="add_product_button">Acheter</string>
+    <string name="add_product_panier">Acheter</string>
 </resources>
