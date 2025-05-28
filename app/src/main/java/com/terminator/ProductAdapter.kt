@@ -31,7 +31,6 @@ class ProductAdapter(
 
         itemView.findViewById<TextView>(R.id.textView_title).text = product.title
         itemView.findViewById<TextView>(R.id.textView_price).text = "${product.price} €"
-        itemView.findViewById<TextView>(R.id.category).text = product.category
         val imageView = itemView.findViewById<ImageView>(R.id.imageView_article)
         Glide.with(itemView.context).load(product.image).into(imageView)
 
