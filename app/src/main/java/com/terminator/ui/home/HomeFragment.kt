@@ -13,8 +13,6 @@ import com.terminator.ProductAdapter
 import com.terminator.databinding.FragmentHomeBinding
 import com.terminator.repository.ProductRepository
 import kotlinx.coroutines.runBlocking
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -40,7 +38,7 @@ class HomeFragment : Fragment() {
         val recyclerView =binding.listArticles
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
-        lifecycleScope.launch {
+        runBlocking{
             val repository = ProductRepository()
             val products = repository.getAllProducts()
 
