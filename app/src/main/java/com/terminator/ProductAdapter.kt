@@ -19,7 +19,7 @@ class ProductAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.activity_article_view, parent, false)
+            .inflate(R.layout.article_view, parent, false)
         return ProductViewHolder(view)
     }
 
@@ -29,11 +29,6 @@ class ProductAdapter(
         val product = products[position]
         val itemView = holder.itemView
 
-        itemView.findViewById<TextView>(R.id.textView_title).text = product.title
-        itemView.findViewById<TextView>(R.id.textView_price).text = "${product.price} €"
-        val imageView = itemView.findViewById<ImageView>(R.id.imageView_article)
-        Glide.with(itemView.context).load(product.image).into(imageView)
-
         itemView.setOnClickListener() {
             with(itemView.context) {
                 val intent = Intent(this, DetailArticle::class.java).apply {
@@ -42,6 +37,15 @@ class ProductAdapter(
                 startActivity(intent)
             }
 
+        }
+        itemView.findViewById<TextView>(R.id.textView_title).apply {
+            text = product.title
+        }
+        itemView.findViewById<TextView>(R.id.textView_price).apply {
+            text = "${product.price} €"
+        }
+        itemView.findViewById<TextView>(R.id.textView_rating).apply {
+            text = product.rating.toString()
         }
 
         itemView.findViewById<ImageView>(R.id.imageView_article).let {
