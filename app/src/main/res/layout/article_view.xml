@@ -48,6 +48,15 @@
           android:layout_height="wrap_content"
           android:text="Rating"
           android:textSize="14sp"/>
+
+      <ImageView
+          android:id="@+id/imageView_qrcode"
+          android:layout_width="121dp"
+          android:layout_height="130dp"
+          android:layout_gravity="center_vertical"
+          android:layout_marginStart="8dp"
+          android:src="@drawable/qrcode" />
+
     </LinearLayout>
   </LinearLayout>
 </androidx.cardview.widget.CardView>

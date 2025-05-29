@@ -10,6 +10,9 @@
     <string name="category" />
     <string name="image" />
     <string name="rating" />
-    <string name="add_product_button">Acheter</string>
     <string name="add_product_panier">Acheter</string>
+    <string name="add_client_message_add">Produit ajouté au panier</string>
+    <string name="viderpanier">Vider le panier</string>
+    <string name="sup_client_message_add">Produit supprimé du panier</string>
+    <string name="supprimer">Supprimer</string>
 </resources>
