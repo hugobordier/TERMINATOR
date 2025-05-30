@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TERMINATOR</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Panier de meth</string>
-    <string name="title_notifications">Caca</string>
+    <string name="title_dashboard">Panier</string>
+    <string name="title_notifications">Notifs</string>
     <string name="Chercherarticle">Chercher un article</string>
     <string name="title" />
     <string name="price" />

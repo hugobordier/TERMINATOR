@@ -67,6 +67,9 @@ class ProductAdapter(
         } catch (e: Exception) {
             e.printStackTrace()
         }
+        holder.itemView.setOnClickListener{
+            onItemClick(product)
+        }
 
 
 
