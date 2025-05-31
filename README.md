@@ -17,7 +17,7 @@ Bienvenue dans le projet **Terminator** – une application Android développée
 ### 2. Cloner le dépôt
 
 ```bash
-git clone https://github.com/ton-repo/terminator.git
+git clone git@github.com:hugobordier/TERMINATOR.git
 cd terminator
 ```
 
