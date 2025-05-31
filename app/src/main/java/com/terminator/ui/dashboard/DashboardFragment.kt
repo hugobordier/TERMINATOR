@@ -44,7 +44,6 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadPanier()
 
-
         binding.buttonViderPanier.setOnClickListener{
             lifecycleScope.launch {
                 val repo = PanierRepository
@@ -58,14 +57,14 @@ class DashboardFragment : Fragment() {
     private fun loadPanier() {
         lifecycleScope.launch {
             val products = PanierRepository.get_panier()
-            val recyclerView =binding.panierRecyclerView
-            recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+            val recyclerView = binding.panierRecyclerView
+            recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-            recyclerView.adapter = ProductAdapter(products) { product ->
+            // Solution : Convertir la List en MutableList
+            recyclerView.adapter = ProductAdapter(products.toMutableList()) { product ->
                 val intent = Intent(requireContext(), DetailArticle::class.java).apply {
                     putExtra(PRODUCT_DATA, product)
-                    putExtra(PANIER,"frompanier")
-
+                    putExtra(PANIER, "frompanier")
                 }
                 startActivity(intent)
             }
