@@ -39,11 +39,11 @@
             }
 
             product?.let {
-                titleview.text = it.title
-                descriptionview.text = it.description
-                priceview.text = it.price.toString()
-                ratingview.text = it.rating.toString()
-                categoryview.text = it.category
+                titleview.text = "Titre : ${it.title}"
+                descriptionview.text = "Description : ${it.description}"
+                categoryview.text = "Catégorie : ${it.category}"
+                priceview.text = "Prix : ${it.price} €"
+                ratingview.text = "Note : ${it.rating.rate}"
                 Glide.with(this).load(it.image).into(imageView)
             } ?: run {
                 // Gérer le cas où le produit est null

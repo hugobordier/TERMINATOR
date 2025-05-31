@@ -43,13 +43,13 @@ class ProductAdapter(
         }
 
         itemView.findViewById<TextView>(R.id.textView_title).apply {
-            text = product.title
+            text = "Titre : ${product.title}"
         }
         itemView.findViewById<TextView>(R.id.textView_price).apply {
             text = "${product.price} €"
         }
         itemView.findViewById<TextView>(R.id.textView_rating).apply {
-            text = product.rating.toString()
+            text = "Note : ${product.rating.rate}"
         }
 
         itemView.findViewById<ImageView>(R.id.imageView_article).let { imageView ->
