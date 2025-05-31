@@ -56,12 +56,7 @@ Ces identifiants permettent d'accéder à l'API FakeStore pour afficher les prod
 - Material Components
 - ZXing (pour le scan QR)
 
----
 
-## ❓ Besoin d'aide ?
 
-Si tu veux que je t'explique une partie du projet, comment ajouter des features ou fixer un bug, demande-moi !
+Made with ❤️ by Hippo & Hugo
 
----
-
-Made with ❤️ by Tonton
