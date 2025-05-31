@@ -18,11 +18,12 @@ public const val PRODUCT_DATA = "product_data"
 public const val PANIER = "frompanier"
 
 class ProductAdapter(
-    private var products: MutableList<Product>,
+    initialProducts: List<Product>, // Accepte List<Product> au lieu de MutableList
     private val onItemClick: (Product) -> Unit
 ) : RecyclerView.Adapter<ProductViewHolder>() {
 
-    private var originalProducts: List<Product> = products.toList()
+    private var products: MutableList<Product> = initialProducts.toMutableList()
+    private var originalProducts: List<Product> = initialProducts
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -36,7 +37,7 @@ class ProductAdapter(
         val product = products[position]
         val itemView = holder.itemView
 
-        // Configurer le click listener
+        // Configurer le click listener - UNE SEULE FOIS
         itemView.setOnClickListener {
             onItemClick(product)
         }
@@ -55,6 +56,8 @@ class ProductAdapter(
             if (product.image.isNotBlank()) {
                 Glide.with(itemView)
                     .load(product.image)
+                    .placeholder(R.drawable.ic_launcher_background) // Placeholder par défaut
+                    .error(R.drawable.ic_launcher_background) // Image d'erreur
                     .into(imageView)
             }
         }
